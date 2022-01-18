@@ -4,10 +4,10 @@
 - [ ] Musique aggro. Comme pokémon et les hautes herbes.
 - [ ] Musique ambiance légère.
 
-- [ ] Bruit damage dans l'eau.
-- [ ] Bruit damage hors de l'eau.
-- [ ] Bruit passage dans l'eau.
-- [ ] Bruit passage hors de l'eau.
+- [x] Bruit damage dans l'eau.
+- [x] Bruit damage hors de l'eau.
+- [x] Bruit passage dans l'eau.
+- [x] Bruit passage hors de l'eau.
 - [x] Bruits bulles.
 - [ ] Bruits tout doux lors de la nage.
 - [x] Bruit de pas.
