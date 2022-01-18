@@ -9,15 +9,13 @@
 - [x] Bruit passage dans l'eau.
 - [x] Bruit passage hors de l'eau.
 - [x] Bruits bulles.
-- [ ] Bruits tout doux lors de la nage.
+- [x] Bruits tout doux lors de la nage.
 - [x] Bruit de pas.
-- [ ] Bruit dash hors de l'eau.
-- [ ] Bruit tir sous l'eau (harpon)
-- [ ] Bruit tir hors de l'eau (fusil)
+- [x] Bruit dash hors de l'eau.
+- [x] Bruit tir sous l'eau (harpon)
+- [x] Bruit tir hors de l'eau (fusil)
 - [x] Bruits épée
-- [ ] Bruit switch arme.
-- [ ] Bruits monstre : oursin kraken, méduse, crabe.
-- [ ] Bruits monstre : sirène
-- [ ] Bruits monstre : méduse
+- [x] Bruit switch arme.
+- [x] Bruits monstre : sirène
 - [ ] Bruits monstre : crabe
-- [ ] Bruits monstre : kraken
+- [x] Bruits monstre : kraken
