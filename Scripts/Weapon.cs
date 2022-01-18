@@ -14,7 +14,7 @@ public class Weapon : MonoBehaviour
     {
         if (timeBtwShots <= 0)
         {
-            if (Input.GetKeyDown(KeyCode.O))
+            if (Input.GetMouseButton(0) && ChangeWeapon.currentWeaponNumber == 1 && !PlayerController.isSwimming)
             {
                 Instantiate(projectile, shotPoint.position, transform.rotation);
                 timeBtwShots = startTimeBtwShots;
@@ -24,10 +24,5 @@ public class Weapon : MonoBehaviour
         {
             timeBtwShots -= Time.deltaTime;
         }
-    }
-
-    void Shoot()
-    {
-        Instantiate(projectile, shotPoint.position, shotPoint.rotation);
     }
 }
