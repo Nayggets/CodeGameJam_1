@@ -75,11 +75,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform headCheck; 
     [SerializeField] private LayerMask whatIsWater; 
 
-    [Header("Life")]
-    [SerializeField] private int maxHealth;
-    [SerializeField] private int actualHealth;
-    private bool canTakeDamage = true;
+    [Header("Malus")]
+    [SerializeField] bool inverser = false;
+    [SerializeField] float timerInverser;
+
+    public ParticleSystem dust;
     
+    void CreateDust(){
+        dust.Play();
+    }
 
     private void MoveCharacter()
     {
@@ -133,10 +137,10 @@ public class PlayerController : MonoBehaviour
 
     public void Flip()
     {
-        // if (isGrounded) //Si le personnage est au sol
-        // {
-        //     CreateDust();
-        // }
+        if (isGrounded && !isSwimming) //Si le personnage est au sol
+        {
+            CreateDust();
+        }
         facingRight = !facingRight; 
         transform.Rotate(0f, 180f, 0f); 
     }
@@ -182,6 +186,21 @@ public class PlayerController : MonoBehaviour
         timeFinished = true;
     }
 
+    IEnumerator InverseControl(){
+        inverser = true;
+        yield return new WaitForSeconds(timerInverser);
+        inverser = false;
+    }
+
+    void MoveCharacterSwimmingInverse(){
+        rb.AddForce(new Vector2(-moveInputX, moveInputY) * swimAcceleration);
+
+        if (Mathf.Abs(rb.velocity.x) > swimMaxSpeed)
+        {
+            rb.velocity = new Vector2(Mathf.Sign(rb.velocity.x) * swimMaxSpeed, rb.velocity.y);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -203,11 +222,18 @@ public class PlayerController : MonoBehaviour
         isTouchingFront = Physics2D.OverlapCircle(frontCheck.position, checkRadius, whatIsGround);
         isSubmerged = Physics2D.OverlapCircle(headCheck.position, checkRadius, whatIsWater);
 
-        if (moveInputX < 0 && facingRight) //Si on va vers la gauche et qu'on regarde vers la droite
+        if (moveInputX < 0 && facingRight && !inverser) //Si on va vers la gauche et qu'on regarde vers la droite
         {
             Flip(); //on flip le personnage
         }
-        else if (moveInputX > 0 && !facingRight) //si on va vers la droite et qu'on regarde vers la gauche
+        else if (moveInputX > 0 && !facingRight && !inverser) //si on va vers la droite et qu'on regarde vers la gauche
+        {
+            Flip(); // on flip le personnage
+        }
+        else if(moveInputX < 0 && !facingRight && inverser){
+            Flip();
+        }
+        else if (moveInputX > 0 && facingRight && inverser) 
         {
             Flip(); // on flip le personnage
         }
@@ -222,7 +248,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !isSwimming && !isCrouching) //Si on appuie sur espace et qu'on est au sol
         {
             Jump(); //On saute
-            //CreateDust();
+            CreateDust();
             jumpTime = jumpTimeInitial; //On initialise un timer pour le saut
             isJumping = true; //On dit qu'il est en train de sauter
         }
@@ -325,7 +351,12 @@ public class PlayerController : MonoBehaviour
         }
         else if (isSwimming && !isCrouching && !isDashing)
         {
-            MoveCharacterSwimming();
+            if(!inverser){
+                MoveCharacterSwimming();
+            }
+            else{
+                MoveCharacterSwimmingInverse();
+            }
         }
         else if (isCrouching && !isSwimming && !isDashing){
             MoveCharacterCrouching();
@@ -339,6 +370,7 @@ public class PlayerController : MonoBehaviour
         if (wallJumping && !isSwimming && !isCrouching)
         {
             rb.velocity = new Vector2(xWallForce * -moveInputX, yWallForce);
+            CreateDust();
         }
     }
 
