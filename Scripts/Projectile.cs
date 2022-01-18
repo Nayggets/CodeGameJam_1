@@ -25,10 +25,6 @@ public class Projectile : MonoBehaviour
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.right, distance, whatIsSolid);
         if(hitInfo.collider != null)
         {
-            if (hitInfo.collider.CompareTag("Enemy"))
-            {
-                hitInfo.collider.GetComponent<Enemy>().Damage(damage);
-            }
             DestroyProjectile();
         }
     }
