@@ -53,7 +53,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3608108784500795134, guid: b2de5203abab1c543bae3be7794d4bd6, type: 3}
       propertyPath: m_Name
-      value: Blue Blood
+      value: Blue Blood Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3608108784500795135, guid: b2de5203abab1c543bae3be7794d4bd6, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3608108784500795135, guid: b2de5203abab1c543bae3be7794d4bd6, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
