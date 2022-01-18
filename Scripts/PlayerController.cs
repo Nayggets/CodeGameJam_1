@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
     [Header("Movements Variables")]
     [SerializeField] private float runAcceleration; 
     [SerializeField] private float maxRunSpeed; 
@@ -17,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private float moveInputX; 
     private float moveInputY; 
 
-    private bool facingRight = true;
+    public static bool facingRight = true;
 
     [Header("CheckGround")]
     private bool isGrounded; 
@@ -58,7 +57,7 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Sprite standing;
     public Sprite crouching;
-    private BoxCollider2D collider;
+    public BoxCollider2D collider;
     public Vector2 standingSize;
     public Vector2 crouchingSize;
     private bool isCrouching;
@@ -66,7 +65,7 @@ public class PlayerController : MonoBehaviour
     public float crouchingSpeedMax;
 
     [Header("Swim Variables")]
-    private bool isSwimming;
+    public static bool isSwimming;
     public float swimmingGravity;
     public float swimAcceleration;
     public float swimMaxSpeed;
@@ -75,6 +74,12 @@ public class PlayerController : MonoBehaviour
     private bool isSubmerged; 
     [SerializeField] private Transform headCheck; 
     [SerializeField] private LayerMask whatIsWater; 
+
+    [Header("Life")]
+    [SerializeField] private int maxHealth;
+    [SerializeField] private int actualHealth;
+    private bool canTakeDamage = true;
+    
 
     private void MoveCharacter()
     {
@@ -126,7 +131,7 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 
-    void Flip()
+    public void Flip()
     {
         // if (isGrounded) //Si le personnage est au sol
         // {
@@ -281,7 +286,7 @@ public class PlayerController : MonoBehaviour
         {
             wallJumping = true;
 
-            
+
             Invoke("SetWallJumpingToFalse", wallJumpTime);
         }
 
@@ -336,4 +341,5 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(xWallForce * -moveInputX, yWallForce);
         }
     }
+
 }
