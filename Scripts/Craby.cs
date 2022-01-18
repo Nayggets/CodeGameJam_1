@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Craby : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     public enum State{
         Moving,
@@ -15,7 +15,6 @@ public class Craby : MonoBehaviour
     [SerializeField]
     private float groundCheckDistance, wallCheckDistance , movementSpeed, maxHealth , knockbackDuration;
 
-    [SerializeField] private float projectileDamage;
 
     [SerializeField]
     
@@ -195,12 +194,6 @@ public class Craby : MonoBehaviour
         Gizmos.DrawLine(groundCheck.position, new Vector2(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
         Gizmos.DrawLine(wallCheck.position, new Vector2(wallCheck.position.x + wallCheckDistance, wallCheck.position.y));
 
-    }
-
-    void OnCollisionEnter2D(Collision2D col){
-        if(col.gameObject.CompareTag("Projectile")){
-            Damage(projectileDamage, col.transform.position.x);
-        }
     }
 
 }
