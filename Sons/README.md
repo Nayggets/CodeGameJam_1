@@ -1,19 +1,20 @@
 - [ ] Ambiance eaux profondes.
+- [x] Ambiance grotte.
 - [ ] Musique boss qui fait peur.
 - [ ] Musique aggro. Comme pokémon et les hautes herbes.
 - [ ] Musique ambiance légère.
 
-
+- [ ] Bruit damage dans l'eau.
+- [ ] Bruit damage hors de l'eau.
 - [ ] Bruit passage dans l'eau.
 - [ ] Bruit passage hors de l'eau.
-- [ ] Bruits bulles.
+- [x] Bruits bulles.
 - [ ] Bruits tout doux lors de la nage.
-- [ ] Bruit de pas.
-- [ ] Bruit dash dans eau.
+- [x] Bruit de pas.
 - [ ] Bruit dash hors de l'eau.
 - [ ] Bruit tir sous l'eau (harpon)
 - [ ] Bruit tir hors de l'eau (fusil)
-- [ ] Bruits épée
+- [x] Bruits épée
 - [ ] Bruit switch arme.
 - [ ] Bruits monstre : oursin kraken, méduse, crabe.
 - [ ] Bruits monstre : sirène
