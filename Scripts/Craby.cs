@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Craby : MonoBehaviour
 {
     public enum State{
         Moving,
@@ -42,6 +42,8 @@ public class Enemy : MonoBehaviour
     
     private Vector2 movement;
 
+    [SerializeField] private ParticleSystem blueBlood;
+
 
     private void Start()
     {
@@ -64,6 +66,10 @@ public class Enemy : MonoBehaviour
                 UpdateDeadState();
                 break;
         }
+    }
+
+    void CreateBlueBlood(){
+        blueBlood.Play();
     }
 
     //Walking
@@ -137,6 +143,7 @@ public class Enemy : MonoBehaviour
     public void Damage(float damage,float position)
     {
         currentHealth -= damage;
+        CreateBlueBlood();
         if(position < alive.transform.position.x){
             damageDirection = 1;
         }
