@@ -79,10 +79,25 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool inverser = false;
     [SerializeField] float timerInverser;
 
+    [Header("Particles")]
     public ParticleSystem dust;
+    public ParticleSystem dashParticle;
+    public ParticleSystem dashParticleBottom;
+    public ParticleSystem dashParticleUp;
     
     void CreateDust(){
         dust.Play();
+    }
+
+    void CreateDashParticleBack(){
+        dashParticle.Play();
+    }
+    void CreateDashParticleBottom(){
+        dashParticleBottom.Play();
+    }
+
+    void CreateDashParticleUp(){
+        dashParticleUp.Play();
     }
 
     private void MoveCharacter()
@@ -347,6 +362,15 @@ public class PlayerController : MonoBehaviour
         }
         else if (isDashing && !isSwimming && !isCrouching)
         {
+            if(moveInputY == 1){
+                CreateDashParticleBottom();
+            }
+            else if (moveInputY == -1){
+                CreateDashParticleUp();
+            }
+            else{
+                CreateDashParticleBack();
+            }
             rb.velocity = dashingDir.normalized * dashVelocity;
         }
         else if (isSwimming && !isCrouching && !isDashing)

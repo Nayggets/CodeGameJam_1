@@ -18,14 +18,22 @@ public class PlayerCombatController : MonoBehaviour
     [SerializeField] private int actualHealth;
     private bool canTakeDamage = true;
 
+    public ParticleSystem blood;
+
     void OnCollisionEnter2D(Collision2D col){
         if(col.gameObject.CompareTag("Enemy")){
             TakeDamage(1, col.transform.position.x);
         }
     }
 
+    void CreateBlood()
+    {
+        blood.Play();
+    }
+
     public void TakeDamage(int damage, float position){
         if(canTakeDamage){
+            CreateBlood();
             canTakeDamage = false;
             actualHealth -= damage;
             StartCoroutine(timeTakeDamage());

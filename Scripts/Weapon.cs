@@ -10,12 +10,15 @@ public class Weapon : MonoBehaviour
     private float timeBtwShots;
     public float startTimeBtwShots;
 
+    [SerializeField] private ParticleSystem gunPowder;
+
     private void Update()
     {
         if (timeBtwShots <= 0)
         {
             if (Input.GetMouseButton(0) && ChangeWeapon.currentWeaponNumber == 1 && !PlayerController.isSwimming)
             {
+                CreateGunPowder();
                 Instantiate(projectile, shotPoint.position, transform.rotation);
                 timeBtwShots = startTimeBtwShots;
             }
@@ -24,5 +27,9 @@ public class Weapon : MonoBehaviour
         {
             timeBtwShots -= Time.deltaTime;
         }
+    }
+
+    void CreateGunPowder(){
+        gunPowder.Play();
     }
 }

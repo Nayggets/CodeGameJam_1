@@ -10,6 +10,13 @@ public class MeduseController : MonoBehaviour
     private Collider2D collider;
     [SerializeField] Transform[] waypoints;
     [SerializeField] private float projectileDamage;
+
+    [SerializeField] public ParticleSystem blueBlood;
+
+    void CreateBlueBlood(){
+        blueBlood.Play();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +37,7 @@ public class MeduseController : MonoBehaviour
     }
 
     public void Damage(float damage){
+        CreateBlueBlood();
         health -= damage;
     }
 
