@@ -1,8 +1,8 @@
-- [ ] Ambiance eaux profondes.
+- [x] Ambiance eaux profondes.
 - [x] Ambiance grotte.
-- [ ] Musique boss qui fait peur.
-- [ ] Musique aggro. Comme pokémon et les hautes herbes.
-- [ ] Musique ambiance légère.
+- [x] Musique boss qui fait peur.
+- [x] Musique ambiance légère.
+- [x] Musique intro.
 
 - [x] Bruit damage dans l'eau.
 - [x] Bruit damage hors de l'eau.
@@ -17,5 +17,5 @@
 - [x] Bruits épée
 - [x] Bruit switch arme.
 - [x] Bruits monstre : sirène
-- [ ] Bruits monstre : crabe
+- [x] Bruits monstre : crabe
 - [x] Bruits monstre : kraken
