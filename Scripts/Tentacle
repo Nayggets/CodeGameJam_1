@@ -1,0 +1,34 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Tentacle : MonoBehaviour
+{
+    public PlayerCombatController PCC;
+    public float distance , Speed;
+    public float ProjectileTime;
+    private Rigidbody2D rb;
+    public LayerMask whatIsSolid;
+    // Start is called before the first frame update
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        rb.velocity = new Vector2(Speed , 0);
+        rb.gravityScale = 0;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        RaycastHit2D Out = Physics2D.Raycast(transform.position, transform.right, distance, whatIsSolid);
+        if(!Out)
+        {
+            DestroyTentacle();
+        }
+    }
+
+    void DestroyTentacle()
+    {
+        Destroy(gameObject);
+    }
+}
