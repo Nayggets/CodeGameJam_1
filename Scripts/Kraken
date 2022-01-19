@@ -1,0 +1,125 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+
+
+
+public class Kraken : MonoBehaviour
+{
+    public float SpawnTime;
+    public BulleWater OriginalBulle;
+    public BulleWater OriginalBulle1;
+    public Tentacle OriginalTentacle;
+    public Transform Bulle1;
+    public Transform Bulle2;
+    public Transform Bulle3;
+    public Transform Bulle4;
+    public Transform Bulle5;
+    public Transform Bulle6;
+    public Transform Bulle7;
+    public Transform Bulle8;
+    public Transform Bulle9;
+    public Transform Bulle10;
+    public Transform Tentacle1;
+    public Transform Tentacle2;
+    public Transform Tentacle3;
+    public Transform Tentacle4;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+            int Spawn = 0;
+            float DTime = SpawnTime;
+            if(DTime <= 0)
+            {
+                Spawn = 0;
+            
+                Spawn = Random.Range(1,15);
+                switch(Spawn)
+                {
+                    case 1:
+                    {
+                        Instantiate(OriginalBulle,Bulle1);
+                        break;
+                    }
+                    case 2:
+                    {
+                        Instantiate(OriginalBulle,Bulle2);
+                        break;
+                    }
+                    case 3:
+                    {
+                        Instantiate(OriginalBulle,Bulle3);
+                        break;
+                    }
+                    case 4:
+                    {
+                        Instantiate(OriginalBulle,Bulle4);
+                        break;
+                    }
+                    case 5:
+                    {
+                        Instantiate(OriginalBulle,Bulle5);
+                        break;
+                    }
+                    case 6:
+                    {
+                        Instantiate(OriginalBulle1,Bulle6);
+                        break;
+                    }
+                    case 7:
+                    {
+                        Instantiate(OriginalBulle1,Bulle7);
+                        break;
+                    }
+                    case 8:
+                    {
+                        Instatiate(OriginalBulle1,Bulle8);
+                        break;
+                    }
+                    case 9:
+                    {
+                        Instatiate(OriginalBulle1,Bulle9);
+                        break;
+                    }
+                    case 10:
+                    {
+                        Instatiate(OriginalBulle1,Bulle10);
+                        break;
+                    }
+                    case 11:
+                    {
+                        Instatiate(Tentacle, Tentacle1);
+                        break;
+                    }
+                    case 12:
+                    {
+                        Instantiate(Tentacle, Tentacle2);
+                        break;
+                    }
+                    case 13:
+                    {
+                        Instantiate(Tentacle, Tentacle3);
+                        break;
+                    }
+                    case 14:
+                    {
+                        Instatiate(Tentacle, Tentacle4);
+                        break;
+                    }
+                }
+                DTime = SpawnTime;
+            }
+            else{
+                DTime -= Time.deltaTime;
+            }
+    }
+}
