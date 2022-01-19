@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3608108784500795132, guid: b2de5203abab1c543bae3be7794d4bd6, type: 3}
+      propertyPath: m_SortingOrder
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3608108784500795133, guid: b2de5203abab1c543bae3be7794d4bd6, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -54,6 +58,10 @@ PrefabInstance:
     - target: {fileID: 3608108784500795134, guid: b2de5203abab1c543bae3be7794d4bd6, type: 3}
       propertyPath: m_Name
       value: Blue Blood Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3608108784500795134, guid: b2de5203abab1c543bae3be7794d4bd6, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3608108784500795135, guid: b2de5203abab1c543bae3be7794d4bd6, type: 3}
       propertyPath: playOnAwake

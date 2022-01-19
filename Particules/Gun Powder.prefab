@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2970031025294264642}
   - component: {fileID: 2970031025294264641}
   - component: {fileID: 2970031025294264640}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Gun Powder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
